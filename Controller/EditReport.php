@@ -61,9 +61,18 @@ class EditReport extends EditController
      */
     protected function loadData($viewName, $view)
     {
-        if ($viewName === $this->getMainViewName()) {
-            parent::loadData($viewName, $view);
-            $this->loadWidgetValues($viewName);
+        $mvn = $this->getMainViewName();
+        switch ($viewName) {
+            case 'ListReportFilter':
+                $where = [];
+                $orderBy = [];
+                $view->loadData('', $where, $orderBy);
+                break;
+
+            default:
+                parent::loadData($viewName, $view);
+                $this->loadWidgetValues($viewName);
+                break;
         }
     }
 
