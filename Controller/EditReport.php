@@ -49,6 +49,7 @@ class EditReport extends EditController
         parent::createViews();
         $this->setTabsPosition('bottom');
         $this->addHtmlView('chart', 'Master/htmlChart', 'Report', 'chart');
+        $this->addListView('ListReportFilter', 'ReportFilter', 'reports-filter', 'fas fa-chalkboard');
 
         // disable print button
         $this->setSettings($this->getMainViewName(), 'btnPrint', false);
