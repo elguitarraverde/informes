@@ -58,6 +58,9 @@ class Report extends Base\ModelClass
     /** @var string */
     public $ycolumn;
 
+    /** @var int */
+    public $idreportfilter;
+
     public function clear()
     {
         parent::clear();
@@ -97,6 +100,7 @@ class Report extends Base\ModelClass
         $this->xcolumn = Tools::noHtml($this->xcolumn);
         $this->xoperation = Tools::noHtml($this->xoperation);
         $this->ycolumn = Tools::noHtml($this->ycolumn);
+        $this->idreportfilter = Tools::noHtml($this->idreportfilter);
 
         return parent::test();
     }
