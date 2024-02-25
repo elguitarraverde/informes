@@ -42,8 +42,16 @@
         <name>ycolumn</name>
         <type>character varying(100)</type>
     </column>
+    <column>
+        <name>idreportfilter</name>
+        <type>integer</type>
+    </column>
     <constraint>
         <name>reports_pkey</name>
         <type>PRIMARY KEY (id)</type>
+    </constraint>
+    <constraint>
+        <name>ca_reports_filters_reports_</name>
+        <type>FOREIGN KEY (idreportfilter) REFERENCES reports_filters (id) ON DELETE CASCADE ON UPDATE CASCADE</type>
     </constraint>
 </table>

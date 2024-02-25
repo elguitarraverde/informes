@@ -100,4 +100,10 @@ class Report extends Base\ModelClass
 
         return parent::test();
     }
+
+    public function install()
+    {
+        new \FacturaScripts\Dinamic\Model\ReportFilter();
+        return parent::install();
+    }
 }
