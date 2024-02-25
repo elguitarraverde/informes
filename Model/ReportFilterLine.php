@@ -30,13 +30,16 @@ class ReportFilterLine extends ModelClass
     use ModelTrait;
 
     /** @var int */
-    public $columns;
-
-    /** @var int */
-    public $height;
-
-    /** @var int */
     public $id;
+
+    /** @var bool */
+    public $pagada;
+
+    /** @var string */
+    public $fechadesde;
+
+    /** @var string */
+    public $fechahasta;
 
     /** @var int */
     public $idreport;
@@ -44,15 +47,12 @@ class ReportFilterLine extends ModelClass
     /** @var int */
     public $idreportfilter;
 
-    /** @var int */
-    public $sort;
-
     public function clear()
     {
         parent::clear();
-        $this->columns = 6;
-        $this->height = 250;
-        $this->sort = $this->count() + 1;
+        $this->pagada = true;
+        $this->fechadesde = date('01-01-Y');
+        $this->fechahasta = date('31-12-Y');
     }
 
     public function getFilter(): ReportFilter

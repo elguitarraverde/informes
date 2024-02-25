@@ -56,18 +56,12 @@ class EditReportFilter extends EditController
         $this->setSettings($this->getMainViewName(), 'btnPrint', false);
 
         // añadimos las pestañas
-        $this->createViewsFilter();
         $this->createViewsLines();
-    }
-
-    protected function createViewsFilter(string $viewName = 'ReportFilter'): void
-    {
-        $this->addHtmlView($viewName, $viewName, 'ReportFilter', 'reports-filter', 'fas fa-chalkfilter');
     }
 
     protected function createViewsLines(string $viewName = 'EditReportFilterLine'): void
     {
-        $this->addEditListView($viewName, 'ReportFilterLine', 'charts', 'fas fa-chart-pie');
+        $this->addEditListView($viewName, 'ReportFilterLine', 'filters', 'fas fa-chart-pie');
 
         // ponemos la vista compacta
         $this->views[$viewName]->setInLine(true);
@@ -80,7 +74,7 @@ class EditReportFilter extends EditController
             case 'EditReportFilterLine':
                 $code = $this->getViewModelValue($mvn, 'id');
                 $where = [new DataBaseWhere('idreportfilter', $code)];
-                $orderBy = ['sort' => 'ASC'];
+                $orderBy = [];
                 $view->loadData('', $where, $orderBy);
                 break;
 
